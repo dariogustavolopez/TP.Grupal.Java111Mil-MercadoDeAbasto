@@ -15,7 +15,7 @@ public class Ejecutable {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("hola quiero ver si cambia");
+        System.out.println("hola que tal tu como estas");
         }
     
 }
