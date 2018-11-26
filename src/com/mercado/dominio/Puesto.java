@@ -37,17 +37,17 @@ class Puesto {
         estado.setAlquilado(false);
     }
 
-    public void darBaja() {
-
-    }
+//    public void darBaja() {
+//
+//    }
 
     public boolean estaDisponible() {
         return estado.isDisponible();
     }
 
-    public boolean estaDisponibleEnFechas() {
-        return false;
-    }
+//    public boolean estaDisponibleEnFechas() {
+//        return false;
+//    }
 
     public int getNumero() {
         return numero;
@@ -109,10 +109,20 @@ class Puesto {
     }
 
     public float obtenerPrecioVigente() {
+        PrecioAlquiler pa = null;
         if (precios.isEmpty()) {
             return 0;
         } else {
-            return precios.get(precios.size() - 1).getPrecio();
+            for (PrecioAlquiler p : precios) {
+                if (p.estaVigente()) {
+                    pa = p;
+                }
+            }
+        }
+        if (pa == null) {
+            return 0;
+        } else {
+            return pa.getPrecio();
         }
     }
 
@@ -124,7 +134,7 @@ class Puesto {
         }
     }
 
-    public void obtenerUltimaLecturaMedidor() {
-
-    }
+//    public void obtenerUltimaLecturaMedidor() {
+//
+//    }
 }

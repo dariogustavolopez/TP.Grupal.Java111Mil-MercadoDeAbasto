@@ -41,24 +41,33 @@ class Contrato {
     }
 
     public float calcularMontoTotalContrato() {
-        return 0;
+        return puesto.obtenerPrecioVigente();
     }
 
     public void cancelar() {
         fechaCancelacion = Calendar.getInstance().getTime();
     }
 
-    public boolean estaPuestoEnPeriodo() {
-        return false;
-    }
+//    public boolean estaPuestoEnPeriodo() {
+//        return false;
+//    }
 
     public boolean estaVigente() {
-        return false;
+         if (fechaCancelacion != null && fechaCancelacion.before(fechaFinContrato)) {
+                if (fechaCancelacion.after(Calendar.getInstance().getTime())) {
+                    return true;
+                }
+            } else {
+                if (fechaFinContrato.after(Calendar.getInstance().getTime())) {
+                    return true;
+                }
+            }
+         return false;
     }
 
-    public Date obtenerFechaRegistro() {
-        return null;
-    }
+//    public Date obtenerFechaRegistro() {
+//        return null;
+//    }
 
     public Date getFechaCancelacion() {
         return fechaCancelacion;

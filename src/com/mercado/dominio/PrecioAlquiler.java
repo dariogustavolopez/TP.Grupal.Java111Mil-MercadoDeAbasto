@@ -5,6 +5,7 @@
  */
 package com.mercado.dominio;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -30,8 +31,8 @@ class PrecioAlquiler {
         this.dimension = dimension;
     }
 
-    private boolean estaVigente() {
-        return false;
+    public boolean estaVigente() {
+        return Calendar.getInstance().getTime().before(fechaVigencia);
     }
 
     public Date getFechaVigencia() {
