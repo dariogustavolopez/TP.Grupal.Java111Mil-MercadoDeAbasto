@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mercado.resources.Empleado" table="empleado" catalog="mercadodeabasto" optimistic-lock="version">
+        <id name="idEmpleado" type="int">
+            <column name="id_empleado" />
+            <generator class="assigned" />
+        </id>
+        <property name="apellido" type="string">
+            <column name="apellido" length="45" not-null="true" />
+        </property>
+        <property name="dni" type="string">
+            <column name="dni" length="16777215" not-null="true" />
+        </property>
+        <property name="fechaIngreso" type="timestamp">
+            <column name="fecha_ingreso" length="26" />
+        </property>
+        <property name="legajo" type="string">
+            <column name="legajo" length="16777215" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="nombreUsuario" type="string">
+            <column name="nombre_usuario" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <set name="sesions" table="sesion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_empleado" not-null="true" />
+            </key>
+            <one-to-many class="com.mercado.resources.Sesion" />
+        </set>
+        <set name="contratos" table="contrato" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_empleado" not-null="true" />
+            </key>
+            <one-to-many class="com.mercado.resources.Contrato" />
+        </set>
+    </class>
+</hibernate-mapping>

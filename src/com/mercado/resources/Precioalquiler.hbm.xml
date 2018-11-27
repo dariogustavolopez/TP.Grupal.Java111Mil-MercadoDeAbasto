@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mercado.resources.Precioalquiler" table="precioalquiler" catalog="mercadodeabasto" optimistic-lock="version">
+        <id name="idPrecioAlquiler" type="int">
+            <column name="id_precio_alquiler" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="dimension" class="com.mercado.resources.Dimension" fetch="select">
+            <column name="id_dimension" not-null="true" />
+        </many-to-one>
+        <many-to-one name="puesto" class="com.mercado.resources.Puesto" fetch="select">
+            <column name="id_puesto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sector" class="com.mercado.resources.Sector" fetch="select">
+            <column name="id_sector" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipopuesto" class="com.mercado.resources.Tipopuesto" fetch="select">
+            <column name="id_tipo_puesto" not-null="true" />
+        </many-to-one>
+        <property name="precio" type="big_decimal">
+            <column name="precio" precision="8" not-null="true" />
+        </property>
+        <property name="fechaVigencia" type="timestamp">
+            <column name="fecha_vigencia" length="26" />
+        </property>
+        <property name="precioAlquilercol" type="string">
+            <column name="PrecioAlquilercol" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

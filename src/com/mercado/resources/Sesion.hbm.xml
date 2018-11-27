@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mercado.resources.Sesion" table="sesion" catalog="mercadodeabasto" optimistic-lock="version">
+        <id name="idSesion" type="int">
+            <column name="id_sesion" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empleado" class="com.mercado.resources.Empleado" fetch="select">
+            <column name="id_empleado" not-null="true" />
+        </many-to-one>
+        <property name="fechaHoraInicio" type="timestamp">
+            <column name="fecha_hora_inicio" length="26" />
+        </property>
+        <property name="fechaHoraFin" type="timestamp">
+            <column name="fecha_hora_fin" length="26" />
+        </property>
+        <set name="contratos" table="contrato" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_sesion" not-null="true" />
+            </key>
+            <one-to-many class="com.mercado.resources.Contrato" />
+        </set>
+    </class>
+</hibernate-mapping>
