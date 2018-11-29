@@ -1,5 +1,5 @@
 package com.mercado.resources;
-// Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1
+// Generated 29-nov-2018 14:41:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Cliente  implements java.io.Serializable {
 
 
-     private int cuitCliente;
+     private long cuitCliente;
      private String domicilio;
      private String razonSocial;
      private Set contratos = new HashSet(0);
@@ -20,21 +20,21 @@ public class Cliente  implements java.io.Serializable {
     }
 
 	
-    public Cliente(int cuitCliente) {
+    public Cliente(long cuitCliente) {
         this.cuitCliente = cuitCliente;
     }
-    public Cliente(int cuitCliente, String domicilio, String razonSocial, Set contratos) {
+    public Cliente(long cuitCliente, String domicilio, String razonSocial, Set contratos) {
        this.cuitCliente = cuitCliente;
        this.domicilio = domicilio;
        this.razonSocial = razonSocial;
        this.contratos = contratos;
     }
    
-    public int getCuitCliente() {
+    public long getCuitCliente() {
         return this.cuitCliente;
     }
     
-    public void setCuitCliente(int cuitCliente) {
+    public void setCuitCliente(long cuitCliente) {
         this.cuitCliente = cuitCliente;
     }
     public String getDomicilio() {

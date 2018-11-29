@@ -2,15 +2,15 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="mercadodeabasto2"/>
-  <table-filter match-name="estado"/>
-  <table-filter match-name="empleado"/>
-  <table-filter match-name="lectura"/>
-  <table-filter match-name="puesto"/>
   <table-filter match-name="tipopuesto"/>
-  <table-filter match-name="sector"/>
-  <table-filter match-name="cliente"/>
-  <table-filter match-name="contrato"/>
-  <table-filter match-name="dimension"/>
-  <table-filter match-name="sesion"/>
+  <table-filter match-name="lectura"/>
   <table-filter match-name="precioalquiler"/>
+  <table-filter match-name="sesion"/>
+  <table-filter match-name="dimension"/>
+  <table-filter match-name="sector"/>
+  <table-filter match-name="contrato"/>
+  <table-filter match-name="estado"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="puesto"/>
+  <table-filter match-name="empleado"/>
 </hibernate-reverse-engineering>

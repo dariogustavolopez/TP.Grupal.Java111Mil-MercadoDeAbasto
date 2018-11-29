@@ -1,5 +1,5 @@
 package com.mercado.resources;
-// Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1
+// Generated 29-nov-2018 14:41:32 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

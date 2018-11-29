@@ -1,5 +1,5 @@
 package com.mercado.resources;
-// Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1
+// Generated 29-nov-2018 14:41:32 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,9 +14,9 @@ public class Empleado  implements java.io.Serializable {
 
      private int idEmpleado;
      private String apellido;
-     private String dni;
+     private int dni;
      private Date fechaIngreso;
-     private String legajo;
+     private int legajo;
      private String nombre;
      private String nombreUsuario;
      private String password;
@@ -27,13 +27,13 @@ public class Empleado  implements java.io.Serializable {
     }
 
 	
-    public Empleado(int idEmpleado, String apellido, String dni, String legajo) {
+    public Empleado(int idEmpleado, String apellido, int dni, int legajo) {
         this.idEmpleado = idEmpleado;
         this.apellido = apellido;
         this.dni = dni;
         this.legajo = legajo;
     }
-    public Empleado(int idEmpleado, String apellido, String dni, Date fechaIngreso, String legajo, String nombre, String nombreUsuario, String password, Set sesions, Set contratos) {
+    public Empleado(int idEmpleado, String apellido, int dni, Date fechaIngreso, int legajo, String nombre, String nombreUsuario, String password, Set sesions, Set contratos) {
        this.idEmpleado = idEmpleado;
        this.apellido = apellido;
        this.dni = dni;
@@ -60,11 +60,11 @@ public class Empleado  implements java.io.Serializable {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    public String getDni() {
+    public int getDni() {
         return this.dni;
     }
     
-    public void setDni(String dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
     public Date getFechaIngreso() {
@@ -74,11 +74,11 @@ public class Empleado  implements java.io.Serializable {
     public void setFechaIngreso(Date fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
-    public String getLegajo() {
+    public int getLegajo() {
         return this.legajo;
     }
     
-    public void setLegajo(String legajo) {
+    public void setLegajo(int legajo) {
         this.legajo = legajo;
     }
     public String getNombre() {

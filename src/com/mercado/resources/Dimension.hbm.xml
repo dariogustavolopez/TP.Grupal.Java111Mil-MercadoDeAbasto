@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-nov-2018 14:41:32 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="mercadodeabasto" name="com.mercado.resources.Dimension" optimistic-lock="version" table="dimension">
+  <class catalog="mercadodeabasto2" name="com.mercado.resources.Dimension" optimistic-lock="version" table="dimension">
     <id name="idDimension" type="int">
       <column name="id_dimension"/>
       <generator class="assigned"/>
     </id>
-    <property name="ancho" type="big_decimal">
-      <column name="ancho" not-null="true" precision="7"/>
+    <property name="ancho" type="double">
+      <column name="ancho" not-null="true" precision="22" scale="0"/>
     </property>
-    <property name="largo" type="big_decimal">
-      <column name="largo" precision="7"/>
+    <property name="largo" type="java.lang.Double">
+      <column name="largo" precision="22" scale="0"/>
     </property>
     <property name="nombre" type="string">
       <column length="45" name="nombre"/>

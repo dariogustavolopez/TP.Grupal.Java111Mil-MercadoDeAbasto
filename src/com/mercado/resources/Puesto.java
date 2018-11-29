@@ -1,5 +1,5 @@
 package com.mercado.resources;
-// Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1
+// Generated 29-nov-2018 14:41:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,6 +16,7 @@ public class Puesto  implements java.io.Serializable {
      private Integer numero;
      private Set lecturas = new HashSet(0);
      private Set precioalquilers = new HashSet(0);
+     private Set contratos = new HashSet(0);
 
     public Puesto() {
     }
@@ -25,12 +26,13 @@ public class Puesto  implements java.io.Serializable {
         this.idPuesto = idPuesto;
         this.estado = estado;
     }
-    public Puesto(int idPuesto, Estado estado, Integer numero, Set lecturas, Set precioalquilers) {
+    public Puesto(int idPuesto, Estado estado, Integer numero, Set lecturas, Set precioalquilers, Set contratos) {
        this.idPuesto = idPuesto;
        this.estado = estado;
        this.numero = numero;
        this.lecturas = lecturas;
        this.precioalquilers = precioalquilers;
+       this.contratos = contratos;
     }
    
     public int getIdPuesto() {
@@ -67,6 +69,13 @@ public class Puesto  implements java.io.Serializable {
     
     public void setPrecioalquilers(Set precioalquilers) {
         this.precioalquilers = precioalquilers;
+    }
+    public Set getContratos() {
+        return this.contratos;
+    }
+    
+    public void setContratos(Set contratos) {
+        this.contratos = contratos;
     }
 
 
