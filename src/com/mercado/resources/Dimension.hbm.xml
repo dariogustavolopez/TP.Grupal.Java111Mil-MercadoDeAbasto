@@ -20,7 +20,7 @@
       <key>
         <column name="id_dimension" not-null="true"/>
       </key>
-      <one-to-many class="com.mercado.resources.PrecioAlquile"/>
+      <one-to-many class="com.mercado.resources.PrecioAlquiler"/>
     </set>
   </class>
 </hibernate-mapping>
