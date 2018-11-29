@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-nov-2018 14:41:32 by Hibernate Tools 4.3.1 -->
+<!-- Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.mercado.resources.Contrato" table="contrato" catalog="mercadodeabasto2" optimistic-lock="version">
+    <class name="com.mercado.resources.Contrato" table="contrato" catalog="mercadodeabasto" optimistic-lock="version">
         <id name="numero" type="int">
             <column name="numero" />
             <generator class="assigned" />
@@ -14,14 +14,11 @@
         <many-to-one name="empleado" class="com.mercado.resources.Empleado" fetch="select">
             <column name="id_empleado" not-null="true" />
         </many-to-one>
-        <many-to-one name="puesto" class="com.mercado.resources.Puesto" fetch="select">
-            <column name="id_puesto" not-null="true" />
-        </many-to-one>
         <many-to-one name="sesion" class="com.mercado.resources.Sesion" fetch="select">
             <column name="id_sesion" not-null="true" />
         </many-to-one>
-        <property name="montoMensual" type="java.lang.Double">
-            <column name="monto_mensual" precision="22" scale="0" />
+        <property name="montoMensual" type="big_decimal">
+            <column name="monto_mensual" precision="8" />
         </property>
         <property name="fechaInicioContrato" type="timestamp">
             <column name="fecha_inicio_contrato" length="26" />
@@ -32,5 +29,11 @@
         <property name="fechaCancelacion" type="timestamp">
             <column name="fecha_cancelacion" length="26" />
         </property>
+        <set name="lecturas" table="lectura" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="numero" />
+            </key>
+            <one-to-many class="com.mercado.resources.Lectura" />
+        </set>
     </class>
 </hibernate-mapping>

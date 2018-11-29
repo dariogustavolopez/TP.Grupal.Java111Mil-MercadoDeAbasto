@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-nov-2018 14:41:32 by Hibernate Tools 4.3.1 -->
+<!-- Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.mercado.resources.Cliente" table="cliente" catalog="mercadodeabasto2" optimistic-lock="version">
-        <id name="cuitCliente" type="long">
+    <class name="com.mercado.resources.Cliente" table="cliente" catalog="mercadodeabasto" optimistic-lock="version">
+        <id name="cuitCliente" type="int">
             <column name="cuit_cliente" />
             <generator class="assigned" />
         </id>
         <property name="domicilio" type="string">
-            <column name="domicilio" length="100" />
+            <column name="domicilio" length="45" />
         </property>
         <property name="razonSocial" type="string">
-            <column name="razon_social" length="200" />
+            <column name="razon_social" length="45" />
         </property>
         <set name="contratos" table="contrato" inverse="true" lazy="true" fetch="select">
             <key>

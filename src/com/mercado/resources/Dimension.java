@@ -1,7 +1,8 @@
 package com.mercado.resources;
-// Generated 29-nov-2018 14:41:32 by Hibernate Tools 4.3.1
+// Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1
 
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,8 +13,8 @@ public class Dimension  implements java.io.Serializable {
 
 
      private int idDimension;
-     private double ancho;
-     private Double largo;
+     private BigDecimal ancho;
+     private BigDecimal largo;
      private String nombre;
      private Set precioalquilers = new HashSet(0);
 
@@ -21,11 +22,11 @@ public class Dimension  implements java.io.Serializable {
     }
 
 	
-    public Dimension(int idDimension, double ancho) {
+    public Dimension(int idDimension, BigDecimal ancho) {
         this.idDimension = idDimension;
         this.ancho = ancho;
     }
-    public Dimension(int idDimension, double ancho, Double largo, String nombre, Set precioalquilers) {
+    public Dimension(int idDimension, BigDecimal ancho, BigDecimal largo, String nombre, Set precioalquilers) {
        this.idDimension = idDimension;
        this.ancho = ancho;
        this.largo = largo;
@@ -40,18 +41,18 @@ public class Dimension  implements java.io.Serializable {
     public void setIdDimension(int idDimension) {
         this.idDimension = idDimension;
     }
-    public double getAncho() {
+    public BigDecimal getAncho() {
         return this.ancho;
     }
     
-    public void setAncho(double ancho) {
+    public void setAncho(BigDecimal ancho) {
         this.ancho = ancho;
     }
-    public Double getLargo() {
+    public BigDecimal getLargo() {
         return this.largo;
     }
     
-    public void setLargo(Double largo) {
+    public void setLargo(BigDecimal largo) {
         this.largo = largo;
     }
     public String getNombre() {
