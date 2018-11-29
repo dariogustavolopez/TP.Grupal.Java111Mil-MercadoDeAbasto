@@ -1,5 +1,5 @@
 package com.mercado.resources;
-// Generated 27-nov-2018 15:59:57 by Hibernate Tools 4.3.1
+// Generated 29-nov-2018 14:58:44 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,10 +11,9 @@ public class Lectura  implements java.io.Serializable {
 
 
      private int idLectura;
-     private Contrato contrato;
      private Puesto puesto;
      private Date fechaCaptura;
-     private String lectura;
+     private Double lectura;
 
     public Lectura() {
     }
@@ -24,9 +23,8 @@ public class Lectura  implements java.io.Serializable {
         this.idLectura = idLectura;
         this.puesto = puesto;
     }
-    public Lectura(int idLectura, Contrato contrato, Puesto puesto, Date fechaCaptura, String lectura) {
+    public Lectura(int idLectura, Puesto puesto, Date fechaCaptura, Double lectura) {
        this.idLectura = idLectura;
-       this.contrato = contrato;
        this.puesto = puesto;
        this.fechaCaptura = fechaCaptura;
        this.lectura = lectura;
@@ -38,13 +36,6 @@ public class Lectura  implements java.io.Serializable {
     
     public void setIdLectura(int idLectura) {
         this.idLectura = idLectura;
-    }
-    public Contrato getContrato() {
-        return this.contrato;
-    }
-    
-    public void setContrato(Contrato contrato) {
-        this.contrato = contrato;
     }
     public Puesto getPuesto() {
         return this.puesto;
@@ -60,11 +51,11 @@ public class Lectura  implements java.io.Serializable {
     public void setFechaCaptura(Date fechaCaptura) {
         this.fechaCaptura = fechaCaptura;
     }
-    public String getLectura() {
+    public Double getLectura() {
         return this.lectura;
     }
     
-    public void setLectura(String lectura) {
+    public void setLectura(Double lectura) {
         this.lectura = lectura;
     }
 
