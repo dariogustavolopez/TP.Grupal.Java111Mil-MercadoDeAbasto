@@ -8,11 +8,11 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
     <mapping resource="com/mercado/resources/Estado.hbm.xml"/>
-    <mapping resource="com/mercado/resources/PrecioAlquiler.hbm.xml"/>
+    <mapping resource="com/mercado/resources/PrecioAlquile.hbm.xml"/>
     <mapping resource="com/mercado/resources/Dimension.hbm.xml"/>
     <mapping resource="com/mercado/resources/Empleado.hbm.xml"/>
     <mapping resource="com/mercado/resources/Lectura.hbm.xml"/>
-    <mapping resource="com/mercado/resources/TipoPuesto.hbm.xml"/>
+    <mapping resource="com/mercado/resources/TipoPuest.hbm.xml"/>
     <mapping resource="com/mercado/resources/Cliente.hbm.xml"/>
     <mapping resource="com/mercado/resources/Sesion.hbm.xml"/>
     <mapping resource="com/mercado/resources/Contrato.hbm.xml"/>

@@ -23,7 +23,7 @@
       <key>
         <column name="id_puesto" not-null="true"/>
       </key>
-      <one-to-many class="com.mercado.resources.PrecioAlquiler"/>
+      <one-to-many class="com.mercado.resources.PrecioAlquile"/>
     </set>
   </class>
 </hibernate-mapping>

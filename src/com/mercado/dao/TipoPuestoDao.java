@@ -5,7 +5,7 @@
  */
 package com.mercado.dao;
 
-import com.mercado.resources.TipoPuesto;
+import com.mercado.resources.TipoPuest;
 import java.util.List;
 
 /**
@@ -13,5 +13,5 @@ import java.util.List;
  * @author Juan
  */
 public interface TipoPuestoDao {
-    List<TipoPuesto> getTipos();
+    List<TipoPuest> getTipos();
 }

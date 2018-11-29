@@ -5,7 +5,7 @@
  */
 package com.mercado.dao;
 
-import com.mercado.resources.TipoPuesto;
+import com.mercado.resources.TipoPuest;
 import com.mercado.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
@@ -17,9 +17,9 @@ import org.hibernate.Session;
 public class TipoPuestoDaoHibernateImpl implements TipoPuestoDao{
 
     @Override
-    public List<TipoPuesto> getTipos() {
+    public List<TipoPuest> getTipos() {
         Session s = HibernateUtil.getSessionFactory().openSession();
-        List<TipoPuesto> tipos = s.createQuery("SELECT tp FROM TipoPuesto tp").list();
+        List<TipoPuest> tipos = s.createQuery("SELECT tp FROM TipoPuesto tp").list();
         s.close();
         return tipos;
     }
