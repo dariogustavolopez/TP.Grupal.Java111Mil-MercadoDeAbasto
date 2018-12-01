@@ -1,5 +1,5 @@
 package com.mercado.resources;
-// Generated 29-nov-2018 14:58:44 by Hibernate Tools 4.3.1
+// Generated 01-dic-2018 14:19:46 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -24,12 +24,14 @@ public class Contrato  implements java.io.Serializable {
     }
 
 	
-    public Contrato(int numero, Cliente cliente, Empleado empleado, Puesto puesto, Sesion sesion) {
+    public Contrato(int numero, Cliente cliente, Empleado empleado, Puesto puesto, Sesion sesion, Date fechaInicioContrato, Date fechaFinContrato) {
         this.numero = numero;
         this.cliente = cliente;
         this.empleado = empleado;
         this.puesto = puesto;
         this.sesion = sesion;
+        this.fechaInicioContrato = fechaInicioContrato;
+        this.fechaFinContrato = fechaFinContrato;
     }
     public Contrato(int numero, Cliente cliente, Empleado empleado, Puesto puesto, Sesion sesion, Double montoMensual, Date fechaInicioContrato, Date fechaFinContrato, Date fechaCancelacion) {
        this.numero = numero;

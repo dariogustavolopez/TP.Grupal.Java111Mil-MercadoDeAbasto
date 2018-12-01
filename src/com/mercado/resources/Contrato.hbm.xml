@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-nov-2018 14:58:44 by Hibernate Tools 4.3.1 -->
+<!-- Generated 01-dic-2018 14:19:47 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.mercado.resources.Contrato" table="contrato" catalog="mercadodeabasto2" optimistic-lock="version">
         <id name="numero" type="int">
@@ -24,10 +24,10 @@
             <column name="monto_mensual" precision="22" scale="0" />
         </property>
         <property name="fechaInicioContrato" type="timestamp">
-            <column name="fecha_inicio_contrato" length="26" />
+            <column name="fecha_inicio_contrato" length="26" not-null="true" />
         </property>
         <property name="fechaFinContrato" type="timestamp">
-            <column name="fecha_fin_contrato" length="26" />
+            <column name="fecha_fin_contrato" length="26" not-null="true" />
         </property>
         <property name="fechaCancelacion" type="timestamp">
             <column name="fecha_cancelacion" length="26" />
