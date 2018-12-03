@@ -14,7 +14,7 @@ import org.hibernate.Session;
  *
  * @author Juan
  */
-public class PuestoDaoCRUDHibernateImp implements IDaoCRUD<Puesto> {
+public class PuestoDaoCRUDHibernateImpl implements IDaoCRUD<Puesto> {
 
     @Override
     public Puesto read(long id) {
