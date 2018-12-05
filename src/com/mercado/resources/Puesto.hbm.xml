@@ -19,7 +19,7 @@
       </key>
       <one-to-many class="com.mercado.resources.Lectura"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="precioalquilers" table="precioalquiler">
+    <set fetch="select" inverse="true" lazy="true" name="precioAlquileres" table="precioalquiler">
       <key>
         <column name="id_puesto" not-null="true"/>
       </key>

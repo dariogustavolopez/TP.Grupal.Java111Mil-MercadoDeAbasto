@@ -60,9 +60,23 @@ public class Estado  implements java.io.Serializable {
         this.puestos = puestos;
     }
 
-
-
-
+    public boolean esAlquilado(){
+        return nombre.toUpperCase().equals("alquilado");
+    }
+    
+    public void setAlquilado(){
+        setNombre("Alquilado");
+        setDescripcion("Alquilado");
+    }
+    
+    public boolean esDisponible(){
+        return nombre.toUpperCase().equals("disponible");
+    }
+    
+    public void setDisponible(){
+        setNombre("Disponible");
+        setDescripcion("Disponible");
+    }
 }
 
 

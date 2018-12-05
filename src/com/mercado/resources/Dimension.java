@@ -69,9 +69,9 @@ public class Dimension  implements java.io.Serializable {
         this.precioalquilers = precioalquilers;
     }
 
-
-
-
+    public double calcularMetrosCuadrados(){
+        return largo.doubleValue()*ancho;
+    }
 }
 
 

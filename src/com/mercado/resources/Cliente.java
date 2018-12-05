@@ -53,7 +53,7 @@ public class Cliente implements java.io.Serializable {
         this.razonSocial = razonSocial;
     }
 
-    public Set getContratos() {
+    public Set<Contrato> getContratos() {
         return this.contratos;
     }
 

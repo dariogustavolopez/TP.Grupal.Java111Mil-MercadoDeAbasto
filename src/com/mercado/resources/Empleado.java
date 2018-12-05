@@ -117,8 +117,9 @@ public class Empleado  implements java.io.Serializable {
         this.contratos = contratos;
     }
 
-
-
+    public String getNombreCompleto(){
+        return apellido + ", " + nombre;
+    }
 
 }
 
