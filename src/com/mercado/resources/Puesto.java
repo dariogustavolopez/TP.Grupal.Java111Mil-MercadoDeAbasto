@@ -137,12 +137,14 @@ public class Puesto implements java.io.Serializable {
         darBaja();
     }
 
-    public String mostrarDatosPuesto() {
+    @Override
+    public String toString() {
         PrecioAlquiler precio = obtenerPrecioVigente();
         if (precio != null) {
             return "Tipo de puesto: " + precio.getTipoPuesto().getNombre()
-                    + "\nSector: " + precio.getSector().getNombre()
-                    + "\nDimension: " + precio.getDimension().calcularMetrosCuadrados() + " m2";
+                    + " | Sector: " + precio.getSector().getNombre()
+                    + " | Dimension: " + precio.getDimension().calcularMetrosCuadrados() + " m2"
+                    + " | Precio: " + precio.getPrecio();
         } else {
             return "El puesto no tiene un precio vigente.";
         }

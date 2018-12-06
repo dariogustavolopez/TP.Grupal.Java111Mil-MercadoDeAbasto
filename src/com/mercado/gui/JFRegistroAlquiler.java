@@ -5,18 +5,30 @@
  */
 package com.mercado.gui;
 
+import com.mercado.exception.FechaException;
 import com.mercado.negocio.Gestor;
 import com.mercado.resources.Dimension;
+import com.mercado.resources.PrecioAlquiler;
+import com.mercado.resources.Puesto;
 import com.mercado.resources.TipoPuesto;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Juan
  */
 public class JFRegistroAlquiler extends javax.swing.JFrame {
+
     private final Gestor gestor;
+    
+
     /**
      * Creates new form JFRegistroAlquiler
      */
@@ -37,27 +49,31 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtFechaInicio = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jtFechaVencimiento = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jcbTipoPuesto = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jcbDimension = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        jbBuscar = new javax.swing.JButton();
+        jtDimension = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jlPuestos = new javax.swing.JList<>();
+        jbCancelar = new javax.swing.JButton();
         jbAceptar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jtNuevoPuesto = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrar Alquiler de Puesto");
@@ -76,11 +92,11 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtFechaVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -89,9 +105,9 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtFechaVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -102,6 +118,13 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
         jLabel4.setText("Dimension:");
 
         jLabel5.setText("m2");
+
+        jbBuscar.setText("Buscar");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -115,10 +138,12 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcbDimension, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtDimension, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbBuscar)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,40 +153,36 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jcbTipoPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jcbDimension, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jbBuscar)
+                    .addComponent(jtDimension, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Puestos Disponibles"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Sector", "Numero de puesto", "Dimensiones", "Precio de alquiler"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane3.setViewportView(jlPuestos);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(186, 186, 186))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Cancelar");
+        jbCancelar.setText("Cancelar");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
 
         jbAceptar.setText("Aceptar");
         jbAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -170,10 +191,10 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Nuevo Puesto");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jtNuevoPuesto.setText("Nuevo Puesto");
+        jtNuevoPuesto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jtNuevoPuestoActionPerformed(evt);
             }
         });
 
@@ -184,15 +205,15 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(jtNuevoPuesto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbAceptar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(jbCancelar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -203,30 +224,63 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jbCancelar)
                     .addComponent(jbAceptar)
-                    .addComponent(jButton3))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(jtNuevoPuesto))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAceptarActionPerformed
-        new JDRegistrarContrato(this, true, gestor).setVisible(true);
+        new JDRegistrarContrato(this, true, gestor, jlPuestos.getSelectedValue()).setVisible(true);
     }//GEN-LAST:event_jbAceptarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jtNuevoPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNuevoPuestoActionPerformed
         new JDRegistrarPuesto(this, true, gestor).setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jtNuevoPuestoActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        if (jtFechaInicio.getText().equals("") || jtFechaVencimiento.getText().equals("")
+                || jcbTipoPuesto.getSelectedItem() == null || jtDimension.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Debe Completar todos los campos para filtrar la busqueda", "Aviso", 2);
+        } else {
+           DefaultListModel<Puesto> model = new DefaultListModel<>();
+            Date desde = new Date(jtFechaInicio.getText());
+            Date hasta = new Date(jtFechaVencimiento.getText());
+            List<Puesto> puestos = gestor.getPuestos();
+            PrecioAlquiler precioVigente;
+            TipoPuesto tipoPuestoSelecionado;
+            Double dimensionSelecionada;
+            for (Puesto p : puestos) {
+                try {
+                    precioVigente = p.obtenerPrecioVigente();
+                    tipoPuestoSelecionado = (TipoPuesto) jcbTipoPuesto.getSelectedItem();
+                    dimensionSelecionada = Double.parseDouble(jtDimension.getText());
+                    if (p.estaDisponibleEnFechas(desde, hasta)
+                            && precioVigente.getTipoPuesto().getNombre().equals(tipoPuestoSelecionado.getNombre())
+                            && precioVigente.getDimension().calcularMetrosCuadrados() >= dimensionSelecionada) {
+                        model.addElement(p);
+                    }
+                } catch (FechaException ex) {
+                    JOptionPane.showMessageDialog(this, "La fecha de vencimiento debe ser posterios a la fecha de inicio", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            jlPuestos.setModel(model);
+        }
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -236,14 +290,17 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton jbAceptar;
-    private javax.swing.JComboBox<Dimension> jcbDimension;
+    private javax.swing.JButton jbBuscar;
+    private javax.swing.JButton jbCancelar;
     private javax.swing.JComboBox<TipoPuesto> jcbTipoPuesto;
+    private javax.swing.JList<Puesto> jlPuestos;
+    private javax.swing.JTextField jtDimension;
+    private javax.swing.JTextField jtFechaInicio;
+    private javax.swing.JTextField jtFechaVencimiento;
+    private javax.swing.JButton jtNuevoPuesto;
     // End of variables declaration//GEN-END:variables
 
     private void initModels() {
@@ -253,11 +310,5 @@ public class JFRegistroAlquiler extends javax.swing.JFrame {
             modelTipos.addElement(tp);
         }
         jcbTipoPuesto.setModel(modelTipos);
-        List<Dimension> dimensiones = gestor.getDimensiones();
-        DefaultComboBoxModel<Dimension> modelDimensiones = new DefaultComboBoxModel<>();
-        for (Dimension d : dimensiones) {
-            modelDimensiones.addElement(d);
-        }
-        jcbDimension.setModel(modelDimensiones);
     }
 }

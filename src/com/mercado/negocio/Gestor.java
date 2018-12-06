@@ -13,7 +13,9 @@ import com.mercado.dao.DimensionDaoHibernateImpl;
 import com.mercado.dao.EstadoDao;
 import com.mercado.dao.EstadoDaoHibernateImpl;
 import com.mercado.dao.IDaoCRUD;
+import com.mercado.dao.PuestoDao;
 import com.mercado.dao.PuestoDaoCRUDHibernateImpl;
+import com.mercado.dao.PuestoDaoHibernateImpl;
 import com.mercado.dao.TipoPuestoDao;
 import com.mercado.dao.TipoPuestoDaoHibernateImpl;
 import com.mercado.resources.Cliente;
@@ -34,6 +36,7 @@ public class Gestor {
     private ClienteDao cliente;
     private IDaoCRUD dao;
     private EstadoDao estados;
+    private PuestoDao puestos;
 
     public Gestor() {
     }
@@ -66,6 +69,11 @@ public class Gestor {
     public void crearPuesto(Puesto puesto) {
         dao = new PuestoDaoCRUDHibernateImpl();
         dao.create(puesto);
+    }
+
+    public List<Puesto> getPuestos() {
+        puestos = new PuestoDaoHibernateImpl();
+        return puestos.getPuestos();
     }
 
 }
