@@ -30,7 +30,7 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactory() {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure("com/example/pyfirsthibernate/hibernate.cfg.xml");
+            configuration.configure("hibernate.cfg.xml");
             System.out.println("Hibernate Configuration loaded");
             serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             System.out.println("Hibernate serviceRegistry created");   
